@@ -13,3 +13,15 @@ def twosum(nums: List[int], target: int) -> List[int]:
             return  [cache[value], index]
         cache[target - value] = index
     return [0, 0]
+
+def runningSum(nums: List[int]) -> List[int]:
+    """
+    https://leetcode.com/problems/running-sum-of-1d-array/
+    :param nums:
+    :return:
+    """
+    result = [nums[0]]
+    for i in range(1, len(nums)):
+        result.append(result[i - 1] + nums[i])
+
+    return result
