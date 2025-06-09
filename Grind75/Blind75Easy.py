@@ -41,3 +41,28 @@ def is_balanced(string_to_check):
     else:
         return False
 
+pairs = {"{": "}", "[": "]", "(": ")"}
+open = ["{", "[", "("]
+closed = ["}", "]", ")"]
+
+
+def matching_parenteces(exp):
+    stack = []
+    for s in exp:
+        if s in open:
+            stack.append(pairs[s])
+        if s in closed:
+            if not stack:
+                return False
+            if stack.pop() is not s:
+                return False
+    if stack:
+        return False
+    else:
+        return True
+
+
+a = "((a+b)*c)+(b*a)"
+
+print(is_balanced(a))
+print(matching_parenteces(a))
