@@ -25,3 +25,19 @@ def runningSum(nums: List[int]) -> List[int]:
         result.append(result[i - 1] + nums[i])
 
     return result
+
+
+def is_balanced(string_to_check):
+    open = "("
+    closed = ")"
+    count = 0
+    for s in string_to_check:
+        if s is open:
+            count += 1
+        if s is closed:
+            count -= 1
+    if count == 0:
+        return True
+    else:
+        return False
+
