@@ -1,19 +1,5 @@
 from typing import List
 
-
-def twosum(nums: List[int], target: int) -> List[int]:
-    """
-        Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
-        You may assume that each input would have exactly one solution, and you may not use the same element twice.
-        You can return the answer in any order.
-    """
-    cache = {}
-    for index, value in enumerate(nums):
-        if value in cache:
-            return  [cache[value], index]
-        cache[target - value] = index
-    return [0, 0]
-
 def runningSum(nums: List[int]) -> List[int]:
     """
     https://leetcode.com/problems/running-sum-of-1d-array/
@@ -41,12 +27,13 @@ def is_balanced(string_to_check):
     else:
         return False
 
-pairs = {"{": "}", "[": "]", "(": ")"}
-open = ["{", "[", "("]
-closed = ["}", "]", ")"]
 
 
 def matching_parenteces(exp):
+    pairs = {"{": "}", "[": "]", "(": ")"}
+    open = ["{", "[", "("]
+    closed = ["}", "]", ")"]
+
     stack = []
     for s in exp:
         if s in open:
@@ -62,7 +49,22 @@ def matching_parenteces(exp):
         return True
 
 
-a = "((a+b)*c)+(b*a)"
+def twosum(nums: List[int], target: int) -> List[int]:
+    """
+        Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+        You may assume that each input would have exactly one solution, and you may not use the same element twice.
+        You can return the answer in any order.
+    """
+    cache = {}
+    for index, value in enumerate(nums):
+        if value in cache:
+            return [cache[value], index]
+        cache[target - value] = index
+    return [0, 0]
 
-print(is_balanced(a))
-print(matching_parenteces(a))
+def test_twosum():
+    a = "((a+b)*c)+(b*a)"
+    assert is_balanced(a) is True
+ #   print(is_balanced(a))
+ #   print(matching_parenteces(a))
+
