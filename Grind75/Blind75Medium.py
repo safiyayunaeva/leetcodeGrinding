@@ -32,3 +32,20 @@ def remove_nth_from_end(head, n):
     left.next = left.next.next
 
     return dummy.next
+
+def sameSubstringDP(s, t, K):
+    n = len(s)
+    dp = [0] * (n + 1)
+
+    max_len = 0
+
+    for i in range(1, n + 1):
+        dp[i] = dp[i - 1] + abs(ord(s[i - 1]) - ord(t[i - 1]))
+
+    left = 0
+    for right in range(1, n + 1):
+        while dp[right] - dp[left] > K:
+            left += 1
+        max_len = max(max_len, right - left)
+
+    return max_len
