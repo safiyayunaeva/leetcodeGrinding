@@ -68,3 +68,28 @@ def test_twosum():
  #   print(is_balanced(a))
  #   print(matching_parenteces(a))
 
+from typing import List
+
+
+def compress(chars: List[str]) -> int:
+    # two pointers
+
+    i = 0
+    res = 0
+
+    while i < len(chars):
+        group_len = 1
+        while i < len(chars) - 1 and chars[i] == chars[i + 1]:
+            group_len += 1
+            i += 1
+        chars[res] = chars[i]
+        res += 1
+        if group_len > 1:
+            for val in str(group_len):
+                chars[res] = val
+                res += 1
+        i += 1
+
+    return res
+
+
