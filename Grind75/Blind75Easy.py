@@ -1,5 +1,8 @@
 from typing import List
 
+import pytest
+
+
 def mergeAlternately(word1: str, word2: str) -> str:
     """
     You are given two strings word1 and word2. Merge the strings by adding letters in alternating order,
@@ -13,12 +16,19 @@ def mergeAlternately(word1: str, word2: str) -> str:
     Input: word1 = "abcd", word2 = "pq"
     Output: "apbqcd"
     """
-    result = ""
+    result = []
 
-    return result
+    return "".join(result)
 
-def test_mergeAlternately():
-    pass
+@pytest.mark.parametrize(
+    "word1,  word2, output",
+    [
+    ("abc", "pqr", "apbqcr"),
+    ("ab", "pqrs", "apbqrs")
+])
+def test_mergeAlternately( word1,  word2, output):
+    result = mergeAlternately(word1, word2)
+    assert  result == output
 
 
 def runningSum(nums: List[int]) -> List[int]:
