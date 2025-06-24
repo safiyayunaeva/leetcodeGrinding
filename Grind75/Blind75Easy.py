@@ -12,19 +12,23 @@ def mergeAlternately(word1: str, word2: str) -> str:
     Output: "apbqcr"
     Input: word1 = "ab", word2 = "pqrs"
     Output: "apbqrs"
-
     Input: word1 = "abcd", word2 = "pq"
     Output: "apbqcd"
     """
     result = []
+    for i in range(max(len(word1),len(word2))):
+        if i < len(word1):
+            result.append(word1[i])
+        if i < len(word2):
+            result.append(word2[i])
 
     return "".join(result)
 
-@pytest.mark.parametrize(
-    "word1,  word2, output",
+@pytest.mark.parametrize( "word1,  word2, output",
     [
     ("abc", "pqr", "apbqcr"),
-    ("ab", "pqrs", "apbqrs")
+    ("ab", "pqrs", "apbqrs"),
+    ("abcd", "pq",  "apbqcd")
 ])
 def test_mergeAlternately( word1,  word2, output):
     result = mergeAlternately(word1, word2)
