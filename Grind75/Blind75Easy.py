@@ -32,7 +32,6 @@ def test_mergeAlternately( word1,  word2, output):
     result = mergeAlternately(word1, word2)
     assert  result == output
 
-
 def twoSum(nums: List[int], target: int) -> List[int]:
     """
     Given an array of integers nums and an integer target, return indices of the two numbers such that they
