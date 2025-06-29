@@ -49,3 +49,25 @@ def sameSubstringDP(s, t, K):
         max_len = max(max_len, right - left)
 
     return max_len
+
+from typing import List
+
+
+def mergeIntervals(intervals: List[List[int]]) -> List[List[int]]:
+    # create empty list
+    intervals.sort(key=lambda i: i[0])
+    merged = [intervals[0]]
+    print(intervals)
+
+    for start, end in intervals[1:]:
+        # getting most recent added interval from merged list
+        lastEnd = merged[-1][1]
+        if start <= lastEnd:  # intervals overlapping
+            # merging - getting max between ending previous interval and ending current
+            merged[-1][1] = max(lastEnd, end)
+        else:
+            merged.append([start, end])
+    return merged
+
+
+print(mergeIntervals([[1, 3], [8, 10], [15, 18], [2, 6], [11, 19]]))
