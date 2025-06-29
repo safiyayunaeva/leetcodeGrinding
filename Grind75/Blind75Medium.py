@@ -71,3 +71,17 @@ def mergeIntervals(intervals: List[List[int]]) -> List[List[int]]:
 
 
 print(mergeIntervals([[1, 3], [8, 10], [15, 18], [2, 6], [11, 19]]))
+
+
+def removeKdigits(num: str, k: int) -> str:
+    newL = list(num)
+    while k > 0:
+        if newL[0] < newL[1]:
+            del newL[1]
+        else:
+            del newL[0]
+        k -= 1
+    return ''.join(newL)
+
+
+print(removeKdigits("1432219", 3))
