@@ -85,3 +85,29 @@ def removeKdigits(num: str, k: int) -> str:
 
 
 print(removeKdigits("1432219", 3))
+
+def sortColors( nums: List[int]) -> None:
+
+    def swap(l, r):
+        current = nums[r]
+        nums[r] = nums[l]
+        nums[l] = current
+
+    l = 0
+    for r in range(len(nums)):
+        if nums[l] > nums[r]:
+            swap(l, r)
+        if nums[l] == 0:
+            l += 1
+    print(nums)
+    for r in range(l, len(nums)):
+        if nums[l] > nums[r]:
+            swap(l, r)
+        if nums[l] == 1:
+            l += 1
+
+    print(nums)
+    print(l)
+
+sortColors([2,0,2,1,1,0])
+sortColors([2,0,1])
