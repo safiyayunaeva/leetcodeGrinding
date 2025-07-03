@@ -1,5 +1,8 @@
 import requests
 
+s = "AAAAAAA"
+
+s1 = s.lower()
 def download_leetcode_description(url, save_to=None):
     headers = {
         "User-Agent": "Mozilla/5.0"
