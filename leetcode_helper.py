@@ -4,7 +4,6 @@ import textwrap
 import subprocess
 import requests
 
-
 def github_commit(file_name, s):
     filename = file_name  # Replace with your actual file
     commit_message = f"Created  {s}"
@@ -104,7 +103,7 @@ def get_question_info(title_slug):
         return response.json()
 
 
-slug = "remove-duplicates-from-sorted-array"
+slug = "remove-element"
 data = get_question_info(slug)
 payload = data["data"]["question"]
 python_snippet = next( (item["code"] for item in payload["codeSnippets"] if item["langSlug"] == "python3"), None )
