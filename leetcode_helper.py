@@ -103,7 +103,7 @@ def get_question_info(title_slug):
         return response.json()
 
 
-slug = "remove-element"
+slug = "candy"
 data = get_question_info(slug)
 payload = data["data"]["question"]
 python_snippet = next( (item["code"] for item in payload["codeSnippets"] if item["langSlug"] == "python3"), None )
