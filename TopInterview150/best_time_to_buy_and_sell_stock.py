@@ -12,9 +12,18 @@ def maxProfit(prices: List[int]) -> int:
 	1 <= prices.length <= 105
 	0 <= prices[i] <= 104
 	
-	
 	"""
-	pass
+	result = 0
+	i, j = 0, 1
+	while j < len(prices):
+		temp =  prices[j] - prices[i]
+		if temp > result:
+			result = temp
+		if prices[i] > prices[j]:
+			i = j
+		j += 1
+
+	return result
 
 
 def test_best_time_to_buy_and_sell_stock_example_1():
@@ -23,9 +32,10 @@ def test_best_time_to_buy_and_sell_stock_example_1():
 	Input:prices = [7,1,5,3,6,4]
 	Output:5
 	Explanation:Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
-Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
+	Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
 	"""
-	pass
+	prices = [7,1,5,3,6,4]
+	assert maxProfit(prices) == 5
 
 
 def test_best_time_to_buy_and_sell_stock_example_2():
@@ -35,5 +45,6 @@ def test_best_time_to_buy_and_sell_stock_example_2():
 	Output:0
 	Explanation:In this case, no transactions are done and the max profit = 0.
 	"""
-	pass
+	prices = [7, 6, 4, 3, 1]
+	assert maxProfit(prices) == 0
 
