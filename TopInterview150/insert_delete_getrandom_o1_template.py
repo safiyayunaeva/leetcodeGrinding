@@ -1,6 +1,9 @@
-def __init__(self):
 def insert(val: int) -> bool:
+	pass
+
 def remove(val: int) -> bool:
+	pass
+
 def getRandom(self) -> int:
 	"""
 	Insert Delete GetRandom O(1)
